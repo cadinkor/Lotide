@@ -7,10 +7,6 @@ let assertEqual = (actual, expected) => {
 };
 module.exports = assertEqual;
 
-function head (arr) {
-  return arr[0];
-}
-
 let tail = function (arr) {
   return arr.slice(1) 
 } 

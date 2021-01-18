@@ -1,0 +1,22 @@
+{
+  "name": "@cadinkor/lotide",
+  "version": "1.0.0",
+  "main": "assertArraysEquals.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cadinkor/Lotide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cadinkor/Lotide/issues"
+  },
+  "homepage": "https://github.com/cadinkor/Lotide#readme",
+  "description": ""
+}
