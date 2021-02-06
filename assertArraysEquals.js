@@ -8,19 +8,22 @@ let assertEqual = (actual, expected) => {
 module.exports = assertEqual;
 
 function eqArrays(actual, expected) {
-  if(actual === expected) 
-  return true;
-  for (let i = actual.length-1; i>=0; i--) {
+  if ((actual === expected) && (actual.length() === expected.length()))
+    console.log(actual)
+    console.log(expected)
+
+  for (let i = actual.length - 1; i >= 0; i--) {
+  console.log(`${actual[i]}, ${expected[i]}`)
     if (actual[i] !== expected[i]) 
-    return false;
-      }
-     return true;
-    } 
+      return false;
+  }
+  return true; //when I change this value it changes the pass rating - sus
+}
 
-assertEqual(eqArrays([2, 2, 2], [2, 2, 2]), true);
-assertArraysEqual(eqArrays([2, 2, 2], [2, 2, 2]), true);  
+assertArraysEquals(eqArrays([2, 2, 2], [2, 2, 2, 7]), true);
+assertArraysEquals(eqArrays([1, 2, 3], [2, 2, 2]), false);
 
-function assertArraysEqual (eqArrays) {
+function assertArraysEquals (eqArrays) {
   if (true) {
     console.log("True, they're equal");
   } else {

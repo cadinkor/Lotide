@@ -1,20 +1,37 @@
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const words2 = ['spray', 'limit']
+const arrayOne = ["hello", "world", "lighthouse"];
+const arrayTwo = ["hello"]
 
-const newArray = words.filter((val){
-  return words2.indexOf(val) == -1;
-});
+const without = arrayOne.filter(x => arrayTwo.indexOf(x) === -1)
 
-console.log(words)
-console.log(newArray)
+// function eqArrays(arrayOne, arrayTwo) {
 
-const without = (array,items) => {
-  const results = [];
-}
+//   if (arrayOne.length !== arrayTwo.length) {//I am comparing array one and array two. 
+//     return false;   //I want them to strictly === and that will return false if they aren't the same 
+//   }
+//   for (let i = 0; i < arrayOne.length; i++) {//go through one item at a time for arrayOne
 
-const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]); 
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+//     if (arrayOne[i] !== arrayTwo[i]) {
+//       return false;
+//     }
 
-// .includes()
-//manually loop through the values between the arrays and push the arrays dont exist 
+//   }
+//   //and if they don’t then return true
+//   return true;
+// }
+
+// function assertArrayEqual(actual, expected) {
+  
+//   if (eqArrays(actual, expected)) {
+//     console.log(`😈😈😈 Assertion Passed: ${actual} === ${expected}`);
+
+//   } else {
+//     console.log(`🤮🤮🤮 Assertion Failed:${actual} !== ${expected}.`)
+
+//   }
+// }
+
+console.log(arrayOne)
+console.log(arrayTwo)
+console.log(without)
+// assertArraysEqual(eqArrays([arrayOne], [arrayOne]), true);
+// assertArraysEqual(eqArrays([arrayOne], [arrayTwo]), false);
