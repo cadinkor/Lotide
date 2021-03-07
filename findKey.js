@@ -1,46 +1,21 @@
-
-// test assertArraysEqual
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  } else {
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      }
+const findKeys = function(object, callback) {
+  const objArray = Object.keys(object);
+  for (let arrayElement of objArray) {
+    if (callback(object[arrayElement])) {
+      return arrayElement;
     }
   }
-  return true;
 };
 
-let assertArraysEqual = function(actual, expected) {
-  const result = eqArrays(actual, expected);
-  if (result === true) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+module.exports = findKeys;
 
-// const array = ["1", "2", ",", "4", "5"]
-// const callback = x => x === ','
+findKeys({
+  "Blue Hill": { stars: 1 },
+  "Akaleri":   { stars: 3 },
+  "noma":      { stars: 2 },
+  "elBulli":   { stars: 3 },
+  "Ora":       { stars: 2 },
+  "Akelarre":  { stars: 3 }
+}, x => x.stars === 2) // => "noma"
 
-const takeUntil = function(array, callback) {
-  let returnArr = [] 
-    for (let element of array) {
-      if (!callback(element)) { 
-        returnArr.push(element)
-      } else {
-        return returnArr;
-      }
-  }
-}
-
-//test code
-const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-const results1 = takeUntil(data1, x => x < 0);
-assertArraysEqual(results1, [1, 2, 5, 7, 2]);
-
-const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"];
-const results2 = takeUntil(data2, x => x === ',');
-assertArraysEqual(results2, ['I\'ve', 'been', 'to', 'Hollywood']);
+console.log(findKeys("Blue Hill", x => x.stars === 3))

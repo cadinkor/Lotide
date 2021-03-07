@@ -5,20 +5,11 @@ let assertEqual = (actual, expected) => {
     console.log(`Assertion Failed: "${actual}" !== "${expected}"`);
   }
 };
-module.exports = assertEqual;
 
-function eqArrays(actual, expected) {
-  if ((actual === expected) && (actual.length() === expected.length()))
-    console.log(actual)
-    console.log(expected)
+const eqArrays = (a, b) =>
+  a.length === b.length && a.every((v, i) => v === b[i])
 
-  for (let i = actual.length - 1; i >= 0; i--) {
-  console.log(`${actual[i]}, ${expected[i]}`)
-    if (actual[i] !== expected[i]) 
-      return false;
-  }
-  return true; //when I change this value it changes the pass rating - sus
-}
+module.exports = eqArrays;
 
-assertEqual(eqArrays([2, 2, 2], [2, 2, 2, 7]), true);
+assertEqual(eqArrays([2, 2, 2], [2, 2, 2]), true);
 assertEqual(eqArrays([1, 2, 3], [2, 2, 2]), false);

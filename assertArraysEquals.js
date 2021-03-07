@@ -1,33 +1,18 @@
-let assertEqual = (actual, expected) => {
-  if (actual === expected) {
-    console.log(`Assertion Passed: ${actual} === ${expected}`);
+// const eqArrays = require("./eqArrays");
+
+const assertArraysEqual = function(array1, array2) {
+  if (eqArrays(array1, array2)) {
+    console.log(`Assertion passed: ${array1} === ${array2}`);
   } else {
-    console.log(`Assertion Failed: "${actual}" !== "${expected}"`);
+    console.log(`Assertion failed: ${array1} !== ${array2}`);
   }
 };
-module.exports = assertEqual;
 
-function eqArrays(actual, expected) {
-  if ((actual === expected) && (actual.length() === expected.length()))
-    console.log(actual)
-    console.log(expected)
+const eqArrays = (a, b) =>
+  a.length === b.length && a.every((v, i) => v === b[i])
 
-  for (let i = actual.length - 1; i >= 0; i--) {
-  console.log(`${actual[i]}, ${expected[i]}`)
-    if (actual[i] !== expected[i]) 
-      return false;
-  }
-  return true; //when I change this value it changes the pass rating - sus
-}
 
-assertArraysEquals(eqArrays([2, 2, 2], [2, 2, 2, 7]), true);
-assertArraysEquals(eqArrays([1, 2, 3], [2, 2, 2]), false);
+// module.exports = assertArraysEqual;
 
-function assertArraysEquals (eqArrays) {
-  if (true) {
-    console.log("True, they're equal");
-  } else {
-    console.log("False, they're not equal");
-  }
-}
-
+assertArraysEqual([2, 2, 2], [2, 2, 2]);
+assertArraysEqual([1, 2, 3], [2, 2, 2]);

@@ -34,7 +34,12 @@ const firstNames = [
   "Joe"
 ];
 
-const object = { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false };
+const object = { 
+  "Jason": true, 
+  "Karima": true, 
+  "Fang": true, 
+  "Agouhanna": false 
+};
 
 const result1 = countOnly(firstNames, object)
 console.log(result1);

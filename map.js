@@ -1,67 +1,42 @@
-let assertEqual = (actual, expected) => {
-  if (actual === expected) {
-    console.log(`Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`Assertion Failed: "${actual}" !== "${expected}"`);
-  }
-};
-module.exports = assertEqual;
-
-function eqArrays(actual, expected) {
-  if(actual === expected) 
-  return true;
-  for (let i = actual.length-1; i>=0; i--) {
-    if (actual[i] !== expected[i]) 
-    return false;
-      }
-     return true;
-    } 
-
-assertEqual(eqArrays([2, 2, 2], [2, 2, 2]), true);
-assertArraysEqual(eqArrays([2, 2, 2], [2, 2, 2]), true);  
-
-function assertArraysEqual (eqArrays) {
-  if (true) {
-    console.log("True, they're equal");
-  } else {
-    console.log("False, they're not equal");
-  }
-}
-
 // const words = ["ground", "control", "to", "major", "tom"];
-
-// //function definition/template (how the function will work)
-// const map = function(array, callback) { //
-//   const results = [];
-//   for (let item of array) {
-//     console.log('item BEFORE: ', item);
-//     console.log('item AFTER: ', callback(item));
-//     console.log('---');
-//   }
-//   return results;
-// }
-// //map is going to change somehting about the array and return a new one 
-
-// const results1 = map(words, word => word[0]); //words is connecting const words which is an array, word => word is the callback paramter of the anonymous function labelled under const map 
-// console.log(results1);
-
-//const results1 = map(words, word => word[0]); //words jumps to array + wprd => word jumps to the callback portion
-
-//I dont understand the above portion of code very well. 
-//Below this line is the second part of the activity
-
-const words = ["ground", "control", "to", "major", "tom"];
 
 const map = function(array, callback) {
   const results = [];
   for (let item of array) {
-    let letter = callback(item)
-      results.push(letter)
-    // results.push(callback(item)); same as above two lines for clarity sake
+    results.push(callback(item));
   }
   return results;
 }
 
-const results1 = map(words, word => word[0]); //words is connecting const words which is an array, word => word is the callback paramter of the anonymous function labelled under const map 
-console.log(results1);
+// const results1 = map(words, word => word[0]);
+// console.log(results1);
 
+const eqArrays = function(array1, array2) {
+  if (array1.length !== array2.length) {
+    // console.log("Arrays not equal length")
+    return false;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    }
+  } return true;
+};
+
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected) === true) {
+    console.log(`✅✅✅ Assertion Passed: "${actual}" === "${expected}"`);
+  } else {
+    console.log(`🛑🛑🛑 Assertion Failed: "${actual}" !== "${expected}"`);
+  }
+};
+const words = ["ground", "control", "to", "major", "tom"];
+
+const results1 = map(words, word => word[0]);
+assertArraysEqual(results1, ['g','c','t','m','t'])
+
+const results2 = map(words, word => word[3]);
+assertArraysEqual(results2, ['u','t', undefined, 'o', undefined]);
+
+const results3 = map(words, word => word.length);
+assertArraysEqual(results3, [6, 6, 2, 5, 3]);
