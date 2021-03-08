@@ -1,12 +1,12 @@
 {
   "name": "@cadinkor/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "assertArraysEquals.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,10 @@
     "url": "https://github.com/cadinkor/Lotide/issues"
   },
   "homepage": "https://github.com/cadinkor/Lotide#readme",
-  "description": ""
+  "description": "A mini clone of the [Lodash](https://lodash.com) library.",
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "mocha": "^8.3.1"
+  },
+  "dependencies": {}
 }

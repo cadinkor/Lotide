@@ -1,26 +1,11 @@
-let arr1 = ["hello", "world", "lighthouse"];
-let arr2 = ["hello"]
+const without = function(array1, array2) {
+  let filteredArray = [];
+  for (const element of array1) {
+    if (!array2.includes(element)) {
+      filteredArray.push(element);
+    }
+  }
+  return filteredArray;
+};
 
-// const without = arr1.filter(element => arr2.indexOf(element) === -1)
-
-//or
-
-const without = (arr1, arr2) => {
-  return arr1.filter(element => arr2.indexOf(element) === -1)
-}
-
-//or
-
-// const without = function(arr1, arr2) {
-//   let filteredArray = [];
-//   for (const element of arr1) {
-//     if (!arr2.includes(element)) {
-//       filteredArray.push(element);
-//     }
-//   }
-//   return filteredArray;
-// };
-
-// console.log(arr1)
-// console.log(arr2)
-console.log(without(arr1, arr2))
+module.exports = without;

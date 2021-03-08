@@ -1,15 +1,16 @@
-const assertEqual = require('../assertEqual');
+  
+const { assert } = require("chai");
+const tail = require("../tail");
 
-if (actual === expected) {
-  console.log(`Assertion Passed: ${actual} === ${expected}`);
-  } else {
-  console.log(`Assertion Failed: "${actual}" !== "${expected}"`);
-}
-
-let tail = function (arr) {
-  return arr.slice(1) 
-} 
-
-console.log(tail ([4,5,6,7]))
-
-module.exports = assertEqual;
+describe("#tail", () => {
+  const words = ["Yo Yo", "Lighthouse", "Labs"];
+  it("returns 3 for words.length", () => {
+    assert.strictEqual((words.length), 3);
+  });
+  it("returns 2 for tail(words).length", () => {
+    assert.strictEqual(tail(words).length, 2);
+  });
+  it("returns ['Lighthouse', 'Labs'] for tail(words)", () => {
+    assert.deepEqual(tail(words), ['Lighthouse', 'Labs']);
+  });
+});
